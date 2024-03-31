@@ -1,12 +1,48 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from base.base_class import Base
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option("detach", True)
-options.page_load_strategy = 'eager'
 
-driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
-base_url = 'https://re-store.ru'
-driver.get(base_url)
-driver.maximize_window()
+class Main_page(Base):
+
+    url = 'https://re-store.ru'
+
+
+    # Locators
+
+    change_region = "//div[@class='header-location__text']"
+    region_sochi = "//a[@class='modal-search-region__item'][18]"
+
+
+    # Getters
+
+    def get_change_region(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.change_region)))
+
+    def get_region_sochi(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.region_sochi)))
+
+
+    # Actions
+
+    def click_change_region(self, change_region):
+        self.get_change_region().click()
+        print("Click change region")
+
+    def click_region_sochi(self, region_sochi):
+        self.get_region_sochi().click()
+        print("Click select region_sochi")
+
+
+    # Methods
+
+    def select_our_region(self):
+        self.driver.get(self.url)
+        self.driver.maximize_window()
+        self.get_current_url()
+        self.click_change_region()
+        self.click_region_sochi()
+
+
+
