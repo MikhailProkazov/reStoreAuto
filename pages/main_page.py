@@ -26,11 +26,11 @@ class Main_page(Base):
 
     # Actions
 
-    def click_change_region(self, change_region):
+    def click_change_region(self):
         self.get_change_region().click()
         print("Click change region")
 
-    def click_region_sochi(self, region_sochi):
+    def click_region_sochi(self):
         self.get_region_sochi().click()
         print("Click select region_sochi")
 
