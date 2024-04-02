@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -40,9 +42,12 @@ class Main_page(Base):
     def select_our_region(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
+        time.sleep(5)
         self.get_current_url()
         self.click_change_region()
+        time.sleep(5)
         self.click_region_sochi()
+        time.sleep(5)
 
 
 

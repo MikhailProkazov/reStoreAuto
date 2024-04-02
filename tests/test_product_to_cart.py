@@ -9,15 +9,5 @@ options = webdriver.ChromeOptions()
 options.page_load_strategy = 'eager'
 
 
-def test_select_region_sochi():
-    driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
+def test_add_product_to_cart():
 
-
-    print("Start test for select our region")
-
-    mp = Main_page(driver)
-    mp.select_our_region()
-
-    time.sleep(5)
-
-    print("Finish test")
