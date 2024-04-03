@@ -7,15 +7,14 @@ from base.base_class import Base
 
 
 class Main_page(Base):
-
     url = 'https://re-store.ru'
-
 
     # Locators
 
-    change_region = "//div[@class='header-location__text']"
-    region_sochi = "//a[@class='modal-search-region__item'][18]"
-
+    change_region = "//div[@class='header-location__text']"  # вкладка для выбора региона
+    region_sochi = "//a[@class='modal-search-region__item'][18]"  # локатор города Сочи
+    iphone_tab = "(//div[@class='header-menu__item'])[3]"  # вкладка с айфонами
+    cart_button = "(//a[@class='header-icons__link'])[3]"  # корзина
 
     # Getters
 
@@ -25,6 +24,11 @@ class Main_page(Base):
     def get_region_sochi(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.region_sochi)))
 
+    def get_iphone_tab(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.iphone_tab)))
+
+    def get_cart_button(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.cart_button)))
 
     # Actions
 
@@ -36,8 +40,28 @@ class Main_page(Base):
         self.get_region_sochi().click()
         print("Click select region_sochi")
 
+    def click_iphone_tab(self):
+        self.get_iphone_tab().click()
+        print("Click iphone tab")
+
+    def click_cart_button(self):
+        self.get_cart_button().click()
+        print("Click cart button")
 
     # Methods
+
+    def open_cart(self):
+        self.get_current_url()
+        self.click_cart_button()
+
+    def open_tab_iphone(self):
+        self.get_current_url()
+        self.click_iphone_tab()
+        self.get_current_url()
+
+    def open_url(self):
+        self.driver.get(self.url)
+        self.driver.maximize_window()
 
     def select_our_region(self):
         self.driver.get(self.url)
@@ -48,6 +72,3 @@ class Main_page(Base):
         time.sleep(5)
         self.click_region_sochi()
         time.sleep(5)
-
-
-

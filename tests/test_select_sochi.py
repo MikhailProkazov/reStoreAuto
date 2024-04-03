@@ -13,11 +13,11 @@ def test_select_region_sochi():
     driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
 
 
-    print("Start test for select our region")
+    print("Start test for select our region Sochi")
 
     mp = Main_page(driver)
     mp.select_our_region()
 
     time.sleep(5)
 
-    print("Finish test")
+    print("Finish test for select our region Sochi")
