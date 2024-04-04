@@ -30,11 +30,7 @@ class Iphone_page(Base):
         return WebDriverWait(self.driver, 60).until(EC.element_to_be_clickable((By.XPATH, self.tab_favorite)))
 
 
-
-
     # Actions
-
-
 
     def click_select_iphone_15_pro_max_256(self):
         self.get_select_iphone_15_pro_max_256().click()
@@ -52,15 +48,13 @@ class Iphone_page(Base):
 
     # Methods
 
-    def filter_and_select_product_to_cart(self):
+    def select_item_to_favorite(self):
         self.get_current_url()                      # проверка корректности url
         self.click_select_iphone_15_pro_max_256()   # выбираем нужный нам товар
         print("Выбрали нужный нам товар")
-        # time.sleep(3)
         self.get_current_url()                      # проверка корректности url
         self.click_select_product_to_favorite()     # добавляем товар в избранное
         print("Добавили товар в избранное")
-        # time.sleep(3)
         self.click_tab_favorite()                   # открываем вкладку избранное
         self.get_current_url()                      # проверка корректности url
 
