@@ -11,6 +11,8 @@ options = webdriver.ChromeOptions()
 options.page_load_strategy = 'eager'
 
 
+
+
 def test_add_product_to_cart():
     driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
 
@@ -25,7 +27,13 @@ def test_add_product_to_cart():
     time.sleep(3)
     print("Открылась вкладка с айфонами")
 
+    ipp = Iphone_page(driver)
+    ipp.filter_and_select_product_to_cart()
+
+    print("Finish Test")
 
 
 
-    print("Открыли нужную нам вкладку с айфонами, отсортировали товары, нашли нужный нам товар")
+
+
+
