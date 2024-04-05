@@ -27,5 +27,6 @@ def test_add_product_to_favorite():
 
     ipp = Iphone_page(driver)
     ipp.select_item_to_favorite()
+    time.sleep(3)
 
     print("Finish Test")

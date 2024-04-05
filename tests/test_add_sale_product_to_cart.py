@@ -21,14 +21,17 @@ def test_add_sale_product_to_cart():
     time.sleep(3)
     print("Открылся нужный нам сайт")
 
-    mp.open_tab_sale()
+    mp.open_sale_tab()
     time.sleep(3)
-    print("Открылась вкладка с акционными товарами")
+    print("Открылась вкладка с акциями и спецпредложениями")
 
     sp = Sale_page(driver)
-    sp.select_marshall_to_cart()
+    sp.add_first_offer_to_cart()
     time.sleep(3)
+    print("Выбрали товар и добавили его в корзину через карточку товара")
 
-    print("Finish Test ")
+    mp.open_cart()
+    time.sleep(3)
+    print("Зашли в корзину")
 
-
+    print("Finish Test")
