@@ -60,6 +60,7 @@ class Main_page(Base):
     def open_cart(self):
         self.get_current_url()
         self.click_cart_button()
+        self.get_current_url()
 
     def open_tab_iphone(self):
         self.get_current_url()

@@ -31,15 +31,16 @@ class Sale_page(Base):
 
     def click_card_first_offer_add_to_cart(self):
         self.get_card_first_offer_add_to_cart().click()
-        print("Click mac 15 add to cart")
+        print("Click first offer add to cart")
 
 
     # Methods
 
     def add_first_offer_to_cart(self):
         self.click_first_offer()                                # вибираем товар
+        self.get_current_url()
         self.click_card_first_offer_add_to_cart()               # добавляем товар в корзину
-        print("Добавили товар в корзину")
+
 
 
 
